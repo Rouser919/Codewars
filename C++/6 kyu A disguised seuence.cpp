@@ -1,42 +1,21 @@
-bool chessBoardCellColor(std::string cell1, std::string cell2) {
-    bool color_cell1= 1;// 1==dark
-    char x,tmp_x;
-    bool color_cell2 = 1;// 1 == dark;
-    x = 'A';
-    while(cell1[0]!=x){
-        if (color_cell1 == 1) color_cell1 = 0;
-        else {
-            color_cell1 = 1;
-        }
-        x++;
-    }
-    tmp_x =  '1';
-    while (cell1[1] != tmp_x) {
-        if (color_cell1 == 1) color_cell1 = 0;
-        else {
-            color_cell1 = 1;
-        }
-        tmp_x++;
-    }
-    x = 'A';
-    tmp_x = '1';
-    while (cell2[0] != x) {
-        if (color_cell2 == 1) color_cell2 = 0;
-        else {
-            color_cell2 = 1;
-        }
-        x++;
-    }
-    tmp_x = '1';
-    while (cell2[1] != tmp_x) {
-        if (color_cell2 == 1) color_cell2 = 0;
-        else {
-            color_cell2 = 1;
-        }
-        tmp_x++;
+class HiddenSeq
+{
+    public:
+    static unsigned long long fcn(int n);
+};
 
-    }
-    if (color_cell2 == color_cell1) return true;
-    return false;
-    //your code here
+unsigned long long HiddenSeq::fcn(int n)
+{
+  typedef unsigned long long ull;
+  ull u0 = 1;
+  ull u1 = 2;
+  ull u2 = 0;
+  
+  for (auto i = 0; i < n - 1; i++)
+  {
+    u2 = 6L * u0 / (5L * u0 - u1) * u1;
+    u0 = u1;
+    u1 = u2;
+  }
+  return u2;
 }
